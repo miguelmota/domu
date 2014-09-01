@@ -9,11 +9,11 @@
    *
    * @func  isObject
    * @param {*} item - any item
-   * @return {boolean} boolean - is object
+   * @return {boolean} - is object
    *
    * @example
-   * console.log(isObject({})); // true
-   * console.log(isObject(2)); // false
+   * console.log(domu.isObject({})); // true
+   * console.log(domu.isObject(2)); // false
    */
   function isObject(o) {
       return Object.prototype.toString.call(o) === '[object Object]';
@@ -25,11 +25,11 @@
    *
    * @func isArray
    * @param {*} item - any item
-   * @return {boolean} boolean - is array
+   * @return {boolean} - is array
    *
    * @example
-   * console.log(isArray([])); // true
-   * console.log(isObject({})); // false
+   * console.log(domu.isArray([])); // true
+   * console.log(domu.isObject({})); // false
    */
   function isArray(o) {
       return Object.prototype.toString.call(o) === '[object Array]';
@@ -45,7 +45,7 @@
    * @return {undefined}
    *
    * @example
-   * addEvent(document.body, 'click', function(event) {
+   * domu.addEvent(document.body, 'click', function(event) {
    *    console.log('click');
    * });
    */
@@ -66,7 +66,7 @@
    * @return {string} url - url
    *
    * @example
-   * createPixel('http://example.com', function() {
+   * domu.createPixel('http://example.com', function() {
    *    console.log('appended');
    * });
    */
@@ -88,10 +88,15 @@
   }
 
   /**
-   * @function createElement
-   * @param {string} - type
-   * @param {object} - attributes
+   * @desc Create a DOM element with attributes.
+   *
+   * @func createElement
+   * @param {string} type - element type
+   * @param {object} attributes - object with attributes
    * @return {HTMLElement} - element
+   *
+   * @example
+   * var el = domu.createElement('div', {id: 'foo'});
    */
   function createElement(type, attrs) {
       var el = document.createElement(type);
@@ -100,9 +105,15 @@
   }
 
   /**
-   * @function htmlContents
-   * @param {HTMLElment} - element
+   * @desc Get HTML contents of element.
+   *
+   * @func htmlContents
+   * @param {HTMLElment} element - element
    * @return {string} - contents
+   *
+   * @example
+   * var myDiv = document.getElementById('myDiv');
+   * var contents = domu.htmlContents(myDiv);
    */
   function htmlContents(el) {
       var div = createElement('div');
@@ -112,29 +123,45 @@
   }
 
   /**
-   * @function remove
-   * @param {HTMLElment} - element
+   * @desc Remove element from DOM.
+   *
+   * @func remove
+   * @param {HTMLElment} element - element
    * @return {undefined}
+   *
+   * @example
+   * var myDiv = document.getElementById('myDiv');
+   * domu.remove(myDiv);
    */
   function remove(el) {
       return el.parentElement.removeChild(el);
   }
 
   /**
-   * @function elementById
-   * @param {string} - element id
+   * @desc Get element by ID.
+   *
+   * @func elementById
+   * @param {string} id - element id
    * @return {undefined}
+   *
+   * @example
+   * var el = domu.elementById('myDiv');
    */
   function elementById(id) {
       return document.getElementById(id);
   }
 
   /**
-   * @function anchor
-   * @alias anchorElement
-   * @param {string} - url
-   * @param {boolean} - is external
+   * @desc create an anchor element.
+   *
+   * @func anchorElement
+   * @alias anchor
+   * @param {string} url - url
+   * @param {boolean} isExternal - is external (adds target="_blank")
    * @return {HTMLElement} - element
+   *
+   * @example
+   * var a = domu.anchorElement('http://example.com', true);
    */
   function anchor(url, ext) {
       var a = document.createElement('a');
@@ -148,10 +175,16 @@
   }
 
   /**
-   * @function setAtributes
-   * @param {HTMLElement} - element
-   * @param {object} - attributes
+   * @desc Set attributes on element.
+   *
+   * @func setAtributes
+   * @param {HTMLElement} element - element
+   * @param {object} attributes - attributes
    * @return {HTMLElement} - element
+   *
+   * @example
+   * var myDiv = document.getElementsById('myDiv');
+   * domu.setAttributes(myDiv, {'data-foo': 'bar'});
    */
   function setAttributes(el, attrs) {
       attrs = (typeof attrs === 'object' ? attrs : {});
@@ -162,10 +195,17 @@
   }
 
   /**
-   * @function appendStylesheet
-   * @param {string} - url
-   * @param {function} - callback
+   * @desc Append stylesheet to head.
+   *
+   * @func appendStylesheet
+   * @param {string} url - url
+   * @param {function} callback - callback
    * @return {HTMLElement} - element
+   *
+   * @example
+   * domu.appendStylesheet('//example.com/style.css', function() {
+   *    console.log('appended');
+   * });
    */
   function appendStylesheet(url, cb) {
       var tag = document.createElement('link');
@@ -182,25 +222,41 @@
   }
 
   /**
-   * @function appendScript
-   * @param {string} - url
+   * @desc Append script to head.
+   *
+   * @func appendScript
+   * @param {string} url - url
+   * @param {function} callback - callback
    * @return {HTMLElement} - element
+   *
+   * @example
+   * domu.appendScript('//example.com/script.js', function() {
+   *    console.log('appended');
+   * });
    */
-  function appendScript(url) {
+  function appendScript(url, cb) {
       var tag = createElement('script', {
           src: url,
           type: 'script/javascript'
       });
+      if (cb) {
+          addEvent(tag, 'load', cb);
+      }
       append(document.getElementsByTagName('head')[0], tag);
       return tag;
   }
 
   /**
-   * @function image
-   * @alias imageElement
-   * @param {string} - url
-   * @param {object} - attributes
+   * @desc Create image element.
+   *
+   * @func imageElement
+   * @alias image
+   * @param {string} url - url
+   * @param {object} attributess - attributes
    * @return {HTMLElement} - element
+   *
+   * @example
+   * var image = domu.imageElement('/images/kitty.png', {alt: 'Kitty'});
    */
   function image(url, attrs) {
       var img = document.createElement('img');
@@ -213,20 +269,34 @@
   }
 
   /**
-   * @function hasClass
-   * @param {HTMLElement} - element
-   * @param {string} - class name
+   * @desc Check if element has class.
+   *
+   * @func hasClass
+   * @param {HTMLElement} element - element
+   * @param {string} className - class name
    * @return {boolean} - has class
+   *
+   * @example
+   * var myDiv = document.getElementById('myDiv');
+   * if (domu.hasClass(myDiv, 'foo')) {
+   *   console.log('Has class "foo"');
+   * }
    */
   function hasClass(el, name) {
       return new RegExp(' ' + name + ' ').test(' ' + el.className + ' ');
   }
 
   /**
-   * @function addClass
-   * @param {HTMLElement} - element
-   * @param {string} - class name
+   * @desc Add class to element.
+   *
+   * @func addClass
+   * @param {HTMLElement} element - element
+   * @param {string} className - class name
    * @return {HTMLElement} - element
+   *
+   * @example
+   * var myDiv = document.getElementById('myDiv');
+   * domu.addClass(myDiv, 'foo');
    */
   function addClass(el, name) {
       if (!hasClass(el, name)) {
@@ -236,10 +306,16 @@
   }
 
   /**
-   * @function removeClass
+   * @desc Remove class from element.
+   *
+   * @func removeClass
    * @param {HTMLElement} - element
-   * @param {string} - class name
+   * @param {string} className - class name
    * @return {HTMLElement} - element
+   *
+   * @example
+   * var myDiv = document.getElementById('myDiv');
+   * domu.removeClass(myDiv, 'foo');
    */
   function removeClass(el, name) {
       var newClass = ' ' + el.className.replace( /[\t\r\n]/g, ' ') + ' ';
@@ -253,21 +329,32 @@
   }
 
   /**
-   * @function textNode
+   * @desc Create a text node.
+   *
+   * @func textNode
    * @return {HTMLElement} - element
+   *
+   * @example
+   * var myTextNode = domu.textNode();
    */
   function textNode() {
       return document.createTextNode.bind(document)();
   }
 
   /**
-   * @function wrap
-   * @param {string} - element type
+   * @desc wrap an element with another type of element.
+   *
+   * @func wrap
+   * @param {string} elementType - element type
    * @return {function}
+   *
+   * @example
+   * var mySpan = document.getElementById('mySpan');
+   * var wrapped = domu.wrap('div')(mySpan); // <div><span id="mySpan"></span></div>
    */
   function wrap(type) {
     /**
-     * @param {HTMLElement} - child element
+     * @param {HTMLElement} childElement - child element
      * @return {HTMLElement} - parent of element
      */
       return function(child) {
@@ -278,10 +365,18 @@
   }
 
   /**
-   * @function append
-   * @param {HTMLElement} - parent element
-   * @param {HTMLElement} - child element
+   * @desc Append element to another element.
+   *
+   * @func append
+   * @param {HTMLElement} parentElement - parent element
+   * @param {HTMLElement} childElement - child element
    * @return {HTMLElement} - parent element
+   *
+   * @example
+   * var myDiv = document.getElementById('myDiv');
+   * var myOutterDiv = document.createElement('div');
+   *
+   * domu.append(myOutterDiv, myDiv);
    */
   function append(parent, child) {
       parent.appendChild(child);
@@ -289,9 +384,15 @@
   }
 
   /**
-   * @function getParams
-   * @param {string} - url
+   * @desc Get parameter from url.
+   *
+   * @func getParams
+   * @param {string} url - url
    * @return {object} - parameters
+   *
+   * @example
+   * var params = domu.getParam('http://example.com?foo=bar');
+   * console.log(params.foo); // 'bar'
    */
   function getParams(url) {
       var params;
@@ -313,11 +414,17 @@
   }
 
   /**
-   * @function setQueryStringParam
-   * @param {string} - url
-   * @param {string} - key
-   * @param {string} - value
+   * @desc Set a query string paramater.
+   *
+   * @func setQueryStringParam
+   * @param {string} url - url
+   * @param {string} key - key
+   * @param {string} value - value
    * @return {string} - new url
+   *
+   * @example
+   * var newUrl = domu.setQueryStringParam('http://example.com/?foo=bar', 'foo', 'qux');
+   * console.log(newUrl); // http://example.com/?foo=qux
    */
   function setQueryStringParam(uri, key, value) {
       var regex = new RegExp('([?|&])' + key + '=.*?(&|#|$)', 'i');
@@ -330,10 +437,17 @@
   }
 
   /**
-   * @function parseHashtag
-   * @param {string} - content string
-   * @param {string} - url
+   * @desc Wrap hashtag in an anchor element.
+   *
+   * @func parseHashtag
+   * @param {string} contentString - content string
+   * @param {string} url - url
    * @return {HTMLElement} - anchor element
+   *
+   * @example
+   * var string = 'some content #foo';
+   * var newString = domu.parseHashtag(string, 'http://example.com/?search={{hashtag}}');
+   * console.log(newString); // 'some content <a href="http://example.com/?search=%23foo">#foo</a>'
    */
   function parseHashtag(str, url) {
       return str.replace(/[#]+[A-Za-z0-9-_]+/g, function(t) {
@@ -345,10 +459,17 @@
   }
 
   /**
-   * @function parseUsername
-   * @param {string} - content string
-   * @param {string} - url
+   * @desc Wrap username in an anchor element.
+   *
+   * @func parseUsername
+   * @param {string} contentString - content string
+   * @param {string} url - url
    * @return {HTMLElement} - anchor element
+   *
+   * @example
+   * var string = 'some content @foo';
+   * var newString = domu.parseUsername(string, 'http://example.com/?search={{username}}');
+   * console.log(newString); // 'some content <a href="http://example.com/?search=foo">@foo</a>'
    */
   function parseUsername(str, url) {
       return str.replace(/[@]+[A-Za-z0-9-_]+/g, function(u) {
@@ -360,9 +481,16 @@
   }
 
   /**
-   * @function parseUrl
-   * @param {string} - url
+   * @desc Wrap url string in an anchor element.
+   *
+   * @func parseUrl
+   * @param {string} contentString - content string containing url
    * @return {HTMLElement} - anchor element
+   *
+   * @example
+   * var string = 'some content http://example.com/';
+   * var newString = domu.parseUrl(string);
+   * console.log(newString); // 'some content <a href="http://example.com/">http://example.com/</a>'
    */
   function parseUrl(str) {
       return str.replace(/[A-Za-z]+:\/\/[A-Za-z0-9-_]+\.[A-Za-z0-9-_:%&~\?\/.=]+/g, function(url) {
@@ -371,9 +499,14 @@
   }
 
   /**
-   * @function isMobileDevice
+   * @desc Return if is mobile device based on user agent.
+   *
+   * @func isMobileDevice
    * @param {string} [device=null] - device
    * @return {boolean} - is device
+   *
+   * @example
+   * var isIphone = domu.isMobileDevice('iphone');
    */
   function isMobileDevice(device) {
       device = device || '';
@@ -414,9 +547,16 @@
   }
 
   /**
-   * @function stripTags
-   * @param {string} - HTML string
+   * @desc Strip HTML tags from a string.
+   *
+   * @func stripTags
+   * @param {string} htmlString - HTML string
    * @return {string} - new HTML string
+   *
+   * @example
+   * var htmlString = '<strong>Hi</strong>';
+   * var newString = domu.stripTags(htmlString);
+   * console.log(newString); // Hi
    */
   function stripTags(str) {
       return (str ? str.replace(/(<([^>]+)>)/ig, '') : str);
@@ -466,8 +606,7 @@
 
   lib._ = _;
 
-
-if (typeof exports !== 'undefined') {
+  if (typeof exports !== 'undefined') {
       if (typeof module !== 'undefined' && module.exports) {
           exports = module.exports = lib;
       }
@@ -477,6 +616,6 @@ if (typeof exports !== 'undefined') {
           return lib;
       });
   } else {
-      global.domu = domu;
+      global.domu = lib;
   }
-})(this);
+}).call(this);

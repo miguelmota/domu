@@ -22,7 +22,7 @@ To extend the `_` when using libraries such as [underscore](http://underscorejs.
 
 Documentation
 
-```
+```bash
 grunt jsdoc
 ```
 

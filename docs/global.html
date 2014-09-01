@@ -36,7 +36,7 @@
 						</li>
 						
 						<li>
-							<a href="global.html#anchor">anchor</a>
+							<a href="global.html#anchorElement">anchorElement</a>
 						</li>
 						
 						<li>
@@ -76,7 +76,7 @@
 						</li>
 						
 						<li>
-							<a href="global.html#image">image</a>
+							<a href="global.html#imageElement">imageElement</a>
 						</li>
 						
 						<li>
@@ -219,12 +219,16 @@
         <dl>
             
 <dt>
-    <h4 class="name" id="addClass"><span class="type-signature"></span>addClass<span class="signature">()</span><span class="type-signature"> &rarr; {HTMLElement}</span></h4>
+    <h4 class="name" id="addClass"><span class="type-signature"></span>addClass<span class="signature">(element, className)</span><span class="type-signature"> &rarr; {HTMLElement}</span></h4>
     
     
 </dt>
 <dd>
     
+    
+    <div class="description">
+        Add class to element.
+    </div>
     
 
     
@@ -238,6 +242,8 @@
 <table class="params table table-striped">
     <thead>
 	<tr>
+		
+		<th>Name</th>
 		
 
 		<th>Type</th>
@@ -254,6 +260,8 @@
 	
 
         <tr>
+            
+                <td class="name"><code>element</code></td>
             
 
             <td class="type">
@@ -275,6 +283,8 @@
 	
 
         <tr>
+            
+                <td class="name"><code>className</code></td>
             
 
             <td class="type">
@@ -364,6 +374,13 @@
 
         
     
+    
+        <h5>Example</h5>
+        
+    <pre class="sunlight-highlight-javascript">var myDiv = document.getElementById(&#x27;myDiv&#x27;);
+domu.addClass(myDiv, &#x27;foo&#x27;);</pre>
+
+
     
 </dd>
 
@@ -547,7 +564,7 @@
     
         <h5>Example</h5>
         
-    <pre class="sunlight-highlight-javascript">addEvent(document.body, &#x27;click&#x27;, function(event) {
+    <pre class="sunlight-highlight-javascript">domu.addEvent(document.body, &#x27;click&#x27;, function(event) {
    console.log(&#x27;click&#x27;);
 });</pre>
 
@@ -558,12 +575,16 @@
         
             
 <dt>
-    <h4 class="name" id="anchor"><span class="type-signature"></span>anchor<span class="signature">()</span><span class="type-signature"> &rarr; {HTMLElement}</span></h4>
+    <h4 class="name" id="anchorElement"><span class="type-signature"></span>anchorElement<span class="signature">(url, isExternal)</span><span class="type-signature"> &rarr; {HTMLElement}</span></h4>
     
     
 </dt>
 <dd>
     
+    
+    <div class="description">
+        create an anchor element.
+    </div>
     
 
     
@@ -577,6 +598,8 @@
 <table class="params table table-striped">
     <thead>
 	<tr>
+		
+		<th>Name</th>
 		
 
 		<th>Type</th>
@@ -593,6 +616,8 @@
 	
 
         <tr>
+            
+                <td class="name"><code>url</code></td>
             
 
             <td class="type">
@@ -615,6 +640,8 @@
 
         <tr>
             
+                <td class="name"><code>isExternal</code></td>
+            
 
             <td class="type">
             
@@ -629,7 +656,7 @@
 
             
 
-            <td class="description last">is external</td>
+            <td class="description last">is external (adds target="_blank")</td>
         </tr>
 
 	
@@ -704,17 +731,27 @@
         
     
     
+        <h5>Example</h5>
+        
+    <pre class="sunlight-highlight-javascript">var a = domu.anchorElement(&#x27;http://example.com&#x27;, true);</pre>
+
+
+    
 </dd>
 
         
             
 <dt>
-    <h4 class="name" id="append"><span class="type-signature"></span>append<span class="signature">()</span><span class="type-signature"> &rarr; {HTMLElement}</span></h4>
+    <h4 class="name" id="append"><span class="type-signature"></span>append<span class="signature">(parentElement, childElement)</span><span class="type-signature"> &rarr; {HTMLElement}</span></h4>
     
     
 </dt>
 <dd>
     
+    
+    <div class="description">
+        Append element to another element.
+    </div>
     
 
     
@@ -728,6 +765,8 @@
 <table class="params table table-striped">
     <thead>
 	<tr>
+		
+		<th>Name</th>
 		
 
 		<th>Type</th>
@@ -744,6 +783,8 @@
 	
 
         <tr>
+            
+                <td class="name"><code>parentElement</code></td>
             
 
             <td class="type">
@@ -765,6 +806,8 @@
 	
 
         <tr>
+            
+                <td class="name"><code>childElement</code></td>
             
 
             <td class="type">
@@ -855,17 +898,30 @@
         
     
     
+        <h5>Example</h5>
+        
+    <pre class="sunlight-highlight-javascript">var myDiv = document.getElementById(&#x27;myDiv&#x27;);
+var myOutterDiv = document.createElement(&#x27;div&#x27;);
+
+domu.append(myOutterDiv, myDiv);</pre>
+
+
+    
 </dd>
 
         
             
 <dt>
-    <h4 class="name" id="appendScript"><span class="type-signature"></span>appendScript<span class="signature">()</span><span class="type-signature"> &rarr; {HTMLElement}</span></h4>
+    <h4 class="name" id="appendScript"><span class="type-signature"></span>appendScript<span class="signature">(url, callback)</span><span class="type-signature"> &rarr; {HTMLElement}</span></h4>
     
     
 </dt>
 <dd>
     
+    
+    <div class="description">
+        Append script to head.
+    </div>
     
 
     
@@ -879,6 +935,8 @@
 <table class="params table table-striped">
     <thead>
 	<tr>
+		
+		<th>Name</th>
 		
 
 		<th>Type</th>
@@ -896,135 +954,7 @@
 
         <tr>
             
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">url</td>
-        </tr>
-
-	
-	</tbody>
-</table>
-
-    
-    
-    
-<dl class="details">
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-
-
-	
-
-	
-
-	
-
-	
-</dl>
-
-    
-    
-
-    
-
-    
-    
-    
-    
-    
-    <h5>Returns:</h5>
-    
-            
-<div class="param-desc">
-    - element
-</div>
-
-
-
-<dl>
-	<dt>
-		Type
-	</dt>
-	<dd>
-		
-<span class="param-type">HTMLElement</span>
-
-
-	</dd>
-</dl>
-
-
-        
-    
-    
-</dd>
-
-        
-            
-<dt>
-    <h4 class="name" id="appendStylesheet"><span class="type-signature"></span>appendStylesheet<span class="signature">()</span><span class="type-signature"> &rarr; {HTMLElement}</span></h4>
-    
-    
-</dt>
-<dd>
-    
-    
-
-    
-    
-    
-    
-    
-        <h5>Parameters:</h5>
-        
-
-<table class="params table table-striped">
-    <thead>
-	<tr>
-		
-
-		<th>Type</th>
-
-		
-
-		
-
-		<th class="last">Description</th>
-	</tr>
-	</thead>
-
-	<tbody>
-	
-
-        <tr>
+                <td class="name"><code>url</code></td>
             
 
             <td class="type">
@@ -1046,6 +976,8 @@
 	
 
         <tr>
+            
+                <td class="name"><code>callback</code></td>
             
 
             <td class="type">
@@ -1136,17 +1068,29 @@
         
     
     
+        <h5>Example</h5>
+        
+    <pre class="sunlight-highlight-javascript">domu.appendScript(&#x27;//example.com/script.js&#x27;, function() {
+   console.log(&#x27;appended&#x27;);
+});</pre>
+
+
+    
 </dd>
 
         
             
 <dt>
-    <h4 class="name" id="createElement"><span class="type-signature"></span>createElement<span class="signature">()</span><span class="type-signature"> &rarr; {HTMLElement}</span></h4>
+    <h4 class="name" id="appendStylesheet"><span class="type-signature"></span>appendStylesheet<span class="signature">(url, callback)</span><span class="type-signature"> &rarr; {HTMLElement}</span></h4>
     
     
 </dt>
 <dd>
     
+    
+    <div class="description">
+        Append stylesheet to head.
+    </div>
     
 
     
@@ -1160,6 +1104,8 @@
 <table class="params table table-striped">
     <thead>
 	<tr>
+		
+		<th>Name</th>
 		
 
 		<th>Type</th>
@@ -1177,6 +1123,8 @@
 
         <tr>
             
+                <td class="name"><code>url</code></td>
+            
 
             <td class="type">
             
@@ -1191,18 +1139,20 @@
 
             
 
-            <td class="description last">type</td>
+            <td class="description last">url</td>
         </tr>
 
 	
 
         <tr>
             
+                <td class="name"><code>callback</code></td>
+            
 
             <td class="type">
             
                 
-<span class="param-type">object</span>
+<span class="param-type">function</span>
 
 
             
@@ -1212,7 +1162,7 @@
 
             
 
-            <td class="description last">attributes</td>
+            <td class="description last">callback</td>
         </tr>
 
 	
@@ -1286,6 +1236,181 @@
 
         
     
+    
+        <h5>Example</h5>
+        
+    <pre class="sunlight-highlight-javascript">domu.appendStylesheet(&#x27;//example.com/style.css&#x27;, function() {
+   console.log(&#x27;appended&#x27;);
+});</pre>
+
+
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="createElement"><span class="type-signature"></span>createElement<span class="signature">(type, attributes)</span><span class="type-signature"> &rarr; {HTMLElement}</span></h4>
+    
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        Create a DOM element with attributes.
+    </div>
+    
+
+    
+    
+    
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params table table-striped">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+
+		<th>Type</th>
+
+		
+
+		
+
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+
+	<tbody>
+	
+
+        <tr>
+            
+                <td class="name"><code>type</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">element type</td>
+        </tr>
+
+	
+
+        <tr>
+            
+                <td class="name"><code>attributes</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">object with attributes</td>
+        </tr>
+
+	
+	</tbody>
+</table>
+
+    
+    
+    
+<dl class="details">
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+
+	
+
+	
+
+	
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    <h5>Returns:</h5>
+    
+            
+<div class="param-desc">
+    - element
+</div>
+
+
+
+<dl>
+	<dt>
+		Type
+	</dt>
+	<dd>
+		
+<span class="param-type">HTMLElement</span>
+
+
+	</dd>
+</dl>
+
+
+        
+    
+    
+        <h5>Example</h5>
+        
+    <pre class="sunlight-highlight-javascript">var el = domu.createElement(&#x27;div&#x27;, {id: &#x27;foo&#x27;});</pre>
+
+
     
 </dd>
 
@@ -1450,7 +1575,7 @@
     
         <h5>Example</h5>
         
-    <pre class="sunlight-highlight-javascript">createPixel(&#x27;http://example.com&#x27;, function() {
+    <pre class="sunlight-highlight-javascript">domu.createPixel(&#x27;http://example.com&#x27;, function() {
    console.log(&#x27;appended&#x27;);
 });</pre>
 
@@ -1461,12 +1586,16 @@
         
             
 <dt>
-    <h4 class="name" id="elementById"><span class="type-signature"></span>elementById<span class="signature">()</span><span class="type-signature"> &rarr; {undefined}</span></h4>
+    <h4 class="name" id="elementById"><span class="type-signature"></span>elementById<span class="signature">(id)</span><span class="type-signature"> &rarr; {undefined}</span></h4>
     
     
 </dt>
 <dd>
     
+    
+    <div class="description">
+        Get element by ID.
+    </div>
     
 
     
@@ -1480,6 +1609,8 @@
 <table class="params table table-striped">
     <thead>
 	<tr>
+		
+		<th>Name</th>
 		
 
 		<th>Type</th>
@@ -1496,6 +1627,8 @@
 	
 
         <tr>
+            
+                <td class="name"><code>id</code></td>
             
 
             <td class="type">
@@ -1582,17 +1715,27 @@
         
     
     
+        <h5>Example</h5>
+        
+    <pre class="sunlight-highlight-javascript">var el = domu.elementById(&#x27;myDiv&#x27;);</pre>
+
+
+    
 </dd>
 
         
             
 <dt>
-    <h4 class="name" id="getParams"><span class="type-signature"></span>getParams<span class="signature">()</span><span class="type-signature"> &rarr; {object}</span></h4>
+    <h4 class="name" id="getParams"><span class="type-signature"></span>getParams<span class="signature">(url)</span><span class="type-signature"> &rarr; {object}</span></h4>
     
     
 </dt>
 <dd>
     
+    
+    <div class="description">
+        Get parameter from url.
+    </div>
     
 
     
@@ -1606,6 +1749,8 @@
 <table class="params table table-striped">
     <thead>
 	<tr>
+		
+		<th>Name</th>
 		
 
 		<th>Type</th>
@@ -1622,6 +1767,8 @@
 	
 
         <tr>
+            
+                <td class="name"><code>url</code></td>
             
 
             <td class="type">
@@ -1712,17 +1859,28 @@
         
     
     
+        <h5>Example</h5>
+        
+    <pre class="sunlight-highlight-javascript">var params = domu.getParam(&#x27;http://example.com?foo=bar&#x27;);
+console.log(params.foo); // &#x27;bar&#x27;</pre>
+
+
+    
 </dd>
 
         
             
 <dt>
-    <h4 class="name" id="hasClass"><span class="type-signature"></span>hasClass<span class="signature">()</span><span class="type-signature"> &rarr; {boolean}</span></h4>
+    <h4 class="name" id="hasClass"><span class="type-signature"></span>hasClass<span class="signature">(element, className)</span><span class="type-signature"> &rarr; {boolean}</span></h4>
     
     
 </dt>
 <dd>
     
+    
+    <div class="description">
+        Check if element has class.
+    </div>
     
 
     
@@ -1736,6 +1894,8 @@
 <table class="params table table-striped">
     <thead>
 	<tr>
+		
+		<th>Name</th>
 		
 
 		<th>Type</th>
@@ -1752,6 +1912,8 @@
 	
 
         <tr>
+            
+                <td class="name"><code>element</code></td>
             
 
             <td class="type">
@@ -1773,6 +1935,8 @@
 	
 
         <tr>
+            
+                <td class="name"><code>className</code></td>
             
 
             <td class="type">
@@ -1863,17 +2027,30 @@
         
     
     
+        <h5>Example</h5>
+        
+    <pre class="sunlight-highlight-javascript">var myDiv = document.getElementById(&#x27;myDiv&#x27;);
+if (domu.hasClass(myDiv, &#x27;foo&#x27;)) {
+  console.log(&#x27;Has class &quot;foo&quot;&#x27;);
+}</pre>
+
+
+    
 </dd>
 
         
             
 <dt>
-    <h4 class="name" id="htmlContents"><span class="type-signature"></span>htmlContents<span class="signature">()</span><span class="type-signature"> &rarr; {string}</span></h4>
+    <h4 class="name" id="htmlContents"><span class="type-signature"></span>htmlContents<span class="signature">(element)</span><span class="type-signature"> &rarr; {string}</span></h4>
     
     
 </dt>
 <dd>
     
+    
+    <div class="description">
+        Get HTML contents of element.
+    </div>
     
 
     
@@ -1887,6 +2064,8 @@
 <table class="params table table-striped">
     <thead>
 	<tr>
+		
+		<th>Name</th>
 		
 
 		<th>Type</th>
@@ -1903,6 +2082,8 @@
 	
 
         <tr>
+            
+                <td class="name"><code>element</code></td>
             
 
             <td class="type">
@@ -1993,17 +2174,28 @@
         
     
     
+        <h5>Example</h5>
+        
+    <pre class="sunlight-highlight-javascript">var myDiv = document.getElementById(&#x27;myDiv&#x27;);
+var contents = domu.htmlContents(myDiv);</pre>
+
+
+    
 </dd>
 
         
             
 <dt>
-    <h4 class="name" id="image"><span class="type-signature"></span>image<span class="signature">()</span><span class="type-signature"> &rarr; {HTMLElement}</span></h4>
+    <h4 class="name" id="imageElement"><span class="type-signature"></span>imageElement<span class="signature">(url, attributess)</span><span class="type-signature"> &rarr; {HTMLElement}</span></h4>
     
     
 </dt>
 <dd>
     
+    
+    <div class="description">
+        Create image element.
+    </div>
     
 
     
@@ -2017,6 +2209,8 @@
 <table class="params table table-striped">
     <thead>
 	<tr>
+		
+		<th>Name</th>
 		
 
 		<th>Type</th>
@@ -2033,6 +2227,8 @@
 	
 
         <tr>
+            
+                <td class="name"><code>url</code></td>
             
 
             <td class="type">
@@ -2054,6 +2250,8 @@
 	
 
         <tr>
+            
+                <td class="name"><code>attributess</code></td>
             
 
             <td class="type">
@@ -2143,6 +2341,12 @@
 
         
     
+    
+        <h5>Example</h5>
+        
+    <pre class="sunlight-highlight-javascript">var image = domu.imageElement(&#x27;/images/kitty.png&#x27;, {alt: &#x27;Kitty&#x27;});</pre>
+
+
     
 </dd>
 
@@ -2261,7 +2465,7 @@
     
             
 <div class="param-desc">
-    boolean - is array
+    - is array
 </div>
 
 
@@ -2284,8 +2488,8 @@
     
         <h5>Example</h5>
         
-    <pre class="sunlight-highlight-javascript">console.log(isArray([])); // true
-console.log(isObject({})); // false</pre>
+    <pre class="sunlight-highlight-javascript">console.log(domu.isArray([])); // true
+console.log(domu.isObject({})); // false</pre>
 
 
     
@@ -2300,6 +2504,10 @@ console.log(isObject({})); // false</pre>
 </dt>
 <dd>
     
+    
+    <div class="description">
+        Return if is mobile device based on user agent.
+    </div>
     
 
     
@@ -2443,6 +2651,12 @@ console.log(isObject({})); // false</pre>
         
     
     
+        <h5>Example</h5>
+        
+    <pre class="sunlight-highlight-javascript">var isIphone = domu.isMobileDevice(&#x27;iphone&#x27;);</pre>
+
+
+    
 </dd>
 
         
@@ -2560,7 +2774,7 @@ console.log(isObject({})); // false</pre>
     
             
 <div class="param-desc">
-    boolean - is object
+    - is object
 </div>
 
 
@@ -2583,8 +2797,8 @@ console.log(isObject({})); // false</pre>
     
         <h5>Example</h5>
         
-    <pre class="sunlight-highlight-javascript">console.log(isObject({})); // true
-console.log(isObject(2)); // false</pre>
+    <pre class="sunlight-highlight-javascript">console.log(domu.isObject({})); // true
+console.log(domu.isObject(2)); // false</pre>
 
 
     
@@ -2593,12 +2807,16 @@ console.log(isObject(2)); // false</pre>
         
             
 <dt>
-    <h4 class="name" id="parseHashtag"><span class="type-signature"></span>parseHashtag<span class="signature">()</span><span class="type-signature"> &rarr; {HTMLElement}</span></h4>
+    <h4 class="name" id="parseHashtag"><span class="type-signature"></span>parseHashtag<span class="signature">(contentString, url)</span><span class="type-signature"> &rarr; {HTMLElement}</span></h4>
     
     
 </dt>
 <dd>
     
+    
+    <div class="description">
+        Wrap hashtag in an anchor element.
+    </div>
     
 
     
@@ -2612,6 +2830,8 @@ console.log(isObject(2)); // false</pre>
 <table class="params table table-striped">
     <thead>
 	<tr>
+		
+		<th>Name</th>
 		
 
 		<th>Type</th>
@@ -2628,6 +2848,8 @@ console.log(isObject(2)); // false</pre>
 	
 
         <tr>
+            
+                <td class="name"><code>contentString</code></td>
             
 
             <td class="type">
@@ -2650,135 +2872,7 @@ console.log(isObject(2)); // false</pre>
 
         <tr>
             
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">url</td>
-        </tr>
-
-	
-	</tbody>
-</table>
-
-    
-    
-    
-<dl class="details">
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-
-
-	
-
-	
-
-	
-
-	
-</dl>
-
-    
-    
-
-    
-
-    
-    
-    
-    
-    
-    <h5>Returns:</h5>
-    
-            
-<div class="param-desc">
-    - anchor element
-</div>
-
-
-
-<dl>
-	<dt>
-		Type
-	</dt>
-	<dd>
-		
-<span class="param-type">HTMLElement</span>
-
-
-	</dd>
-</dl>
-
-
-        
-    
-    
-</dd>
-
-        
-            
-<dt>
-    <h4 class="name" id="parseUrl"><span class="type-signature"></span>parseUrl<span class="signature">()</span><span class="type-signature"> &rarr; {HTMLElement}</span></h4>
-    
-    
-</dt>
-<dd>
-    
-    
-
-    
-    
-    
-    
-    
-        <h5>Parameters:</h5>
-        
-
-<table class="params table table-striped">
-    <thead>
-	<tr>
-		
-
-		<th>Type</th>
-
-		
-
-		
-
-		<th class="last">Description</th>
-	</tr>
-	</thead>
-
-	<tbody>
-	
-
-        <tr>
+                <td class="name"><code>url</code></td>
             
 
             <td class="type">
@@ -2869,17 +2963,29 @@ console.log(isObject(2)); // false</pre>
         
     
     
+        <h5>Example</h5>
+        
+    <pre class="sunlight-highlight-javascript">var string = &#x27;some content #foo&#x27;;
+var newString = domu.parseHashtag(string, &#x27;http://example.com/?search={{hashtag}}&#x27;);
+console.log(newString); // &#x27;some content &lt;a href=&quot;http://example.com/?search=%23foo&quot;&gt;#foo&lt;/a&gt;&#x27;</pre>
+
+
+    
 </dd>
 
         
             
 <dt>
-    <h4 class="name" id="parseUsername"><span class="type-signature"></span>parseUsername<span class="signature">()</span><span class="type-signature"> &rarr; {HTMLElement}</span></h4>
+    <h4 class="name" id="parseUrl"><span class="type-signature"></span>parseUrl<span class="signature">(contentString)</span><span class="type-signature"> &rarr; {HTMLElement}</span></h4>
     
     
 </dt>
 <dd>
     
+    
+    <div class="description">
+        Wrap url string in an anchor element.
+    </div>
     
 
     
@@ -2893,6 +2999,8 @@ console.log(isObject(2)); // false</pre>
 <table class="params table table-striped">
     <thead>
 	<tr>
+		
+		<th>Name</th>
 		
 
 		<th>Type</th>
@@ -2909,6 +3017,154 @@ console.log(isObject(2)); // false</pre>
 	
 
         <tr>
+            
+                <td class="name"><code>contentString</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">content string containing url</td>
+        </tr>
+
+	
+	</tbody>
+</table>
+
+    
+    
+    
+<dl class="details">
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+
+	
+
+	
+
+	
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    <h5>Returns:</h5>
+    
+            
+<div class="param-desc">
+    - anchor element
+</div>
+
+
+
+<dl>
+	<dt>
+		Type
+	</dt>
+	<dd>
+		
+<span class="param-type">HTMLElement</span>
+
+
+	</dd>
+</dl>
+
+
+        
+    
+    
+        <h5>Example</h5>
+        
+    <pre class="sunlight-highlight-javascript">var string = &#x27;some content http://example.com/&#x27;;
+var newString = domu.parseUrl(string);
+console.log(newString); // &#x27;some content &lt;a href=&quot;http://example.com/&quot;&gt;http://example.com/&lt;/a&gt;&#x27;</pre>
+
+
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="parseUsername"><span class="type-signature"></span>parseUsername<span class="signature">(contentString, url)</span><span class="type-signature"> &rarr; {HTMLElement}</span></h4>
+    
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        Wrap username in an anchor element.
+    </div>
+    
+
+    
+    
+    
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params table table-striped">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+
+		<th>Type</th>
+
+		
+
+		
+
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+
+	<tbody>
+	
+
+        <tr>
+            
+                <td class="name"><code>contentString</code></td>
             
 
             <td class="type">
@@ -2931,6 +3187,8 @@ console.log(isObject(2)); // false</pre>
 
         <tr>
             
+                <td class="name"><code>url</code></td>
+            
 
             <td class="type">
             
@@ -3020,17 +3278,29 @@ console.log(isObject(2)); // false</pre>
         
     
     
+        <h5>Example</h5>
+        
+    <pre class="sunlight-highlight-javascript">var string = &#x27;some content @foo&#x27;;
+var newString = domu.parseUsername(string, &#x27;http://example.com/?search={{username}}&#x27;);
+console.log(newString); // &#x27;some content &lt;a href=&quot;http://example.com/?search=foo&quot;&gt;@foo&lt;/a&gt;&#x27;</pre>
+
+
+    
 </dd>
 
         
             
 <dt>
-    <h4 class="name" id="remove"><span class="type-signature"></span>remove<span class="signature">()</span><span class="type-signature"> &rarr; {undefined}</span></h4>
+    <h4 class="name" id="remove"><span class="type-signature"></span>remove<span class="signature">(element)</span><span class="type-signature"> &rarr; {undefined}</span></h4>
     
     
 </dt>
 <dd>
     
+    
+    <div class="description">
+        Remove element from DOM.
+    </div>
     
 
     
@@ -3044,6 +3314,8 @@ console.log(isObject(2)); // false</pre>
 <table class="params table table-striped">
     <thead>
 	<tr>
+		
+		<th>Name</th>
 		
 
 		<th>Type</th>
@@ -3060,6 +3332,8 @@ console.log(isObject(2)); // false</pre>
 	
 
         <tr>
+            
+                <td class="name"><code>element</code></td>
             
 
             <td class="type">
@@ -3146,17 +3420,28 @@ console.log(isObject(2)); // false</pre>
         
     
     
+        <h5>Example</h5>
+        
+    <pre class="sunlight-highlight-javascript">var myDiv = document.getElementById(&#x27;myDiv&#x27;);
+domu.remove(myDiv);</pre>
+
+
+    
 </dd>
 
         
             
 <dt>
-    <h4 class="name" id="removeClass"><span class="type-signature"></span>removeClass<span class="signature">()</span><span class="type-signature"> &rarr; {HTMLElement}</span></h4>
+    <h4 class="name" id="removeClass"><span class="type-signature"></span>removeClass<span class="signature">(className)</span><span class="type-signature"> &rarr; {HTMLElement}</span></h4>
     
     
 </dt>
 <dd>
     
+    
+    <div class="description">
+        Remove class from element.
+    </div>
     
 
     
@@ -3170,6 +3455,8 @@ console.log(isObject(2)); // false</pre>
 <table class="params table table-striped">
     <thead>
 	<tr>
+		
+		<th>Name</th>
 		
 
 		<th>Type</th>
@@ -3186,6 +3473,8 @@ console.log(isObject(2)); // false</pre>
 	
 
         <tr>
+            
+                <td class="name"><code></code></td>
             
 
             <td class="type">
@@ -3207,6 +3496,8 @@ console.log(isObject(2)); // false</pre>
 	
 
         <tr>
+            
+                <td class="name"><code>className</code></td>
             
 
             <td class="type">
@@ -3297,17 +3588,28 @@ console.log(isObject(2)); // false</pre>
         
     
     
+        <h5>Example</h5>
+        
+    <pre class="sunlight-highlight-javascript">var myDiv = document.getElementById(&#x27;myDiv&#x27;);
+domu.removeClass(myDiv, &#x27;foo&#x27;);</pre>
+
+
+    
 </dd>
 
         
             
 <dt>
-    <h4 class="name" id="setAtributes"><span class="type-signature"></span>setAtributes<span class="signature">()</span><span class="type-signature"> &rarr; {HTMLElement}</span></h4>
+    <h4 class="name" id="setAtributes"><span class="type-signature"></span>setAtributes<span class="signature">(element, attributes)</span><span class="type-signature"> &rarr; {HTMLElement}</span></h4>
     
     
 </dt>
 <dd>
     
+    
+    <div class="description">
+        Set attributes on element.
+    </div>
     
 
     
@@ -3321,6 +3623,8 @@ console.log(isObject(2)); // false</pre>
 <table class="params table table-striped">
     <thead>
 	<tr>
+		
+		<th>Name</th>
 		
 
 		<th>Type</th>
@@ -3337,6 +3641,8 @@ console.log(isObject(2)); // false</pre>
 	
 
         <tr>
+            
+                <td class="name"><code>element</code></td>
             
 
             <td class="type">
@@ -3358,6 +3664,8 @@ console.log(isObject(2)); // false</pre>
 	
 
         <tr>
+            
+                <td class="name"><code>attributes</code></td>
             
 
             <td class="type">
@@ -3448,17 +3756,28 @@ console.log(isObject(2)); // false</pre>
         
     
     
+        <h5>Example</h5>
+        
+    <pre class="sunlight-highlight-javascript">var myDiv = document.getElementsById(&#x27;myDiv&#x27;);
+domu.setAttributes(myDiv, {&#x27;data-foo&#x27;: &#x27;bar&#x27;});</pre>
+
+
+    
 </dd>
 
         
             
 <dt>
-    <h4 class="name" id="setQueryStringParam"><span class="type-signature"></span>setQueryStringParam<span class="signature">()</span><span class="type-signature"> &rarr; {string}</span></h4>
+    <h4 class="name" id="setQueryStringParam"><span class="type-signature"></span>setQueryStringParam<span class="signature">(url, key, value)</span><span class="type-signature"> &rarr; {string}</span></h4>
     
     
 </dt>
 <dd>
     
+    
+    <div class="description">
+        Set a query string paramater.
+    </div>
     
 
     
@@ -3472,6 +3791,8 @@ console.log(isObject(2)); // false</pre>
 <table class="params table table-striped">
     <thead>
 	<tr>
+		
+		<th>Name</th>
 		
 
 		<th>Type</th>
@@ -3488,6 +3809,8 @@ console.log(isObject(2)); // false</pre>
 	
 
         <tr>
+            
+                <td class="name"><code>url</code></td>
             
 
             <td class="type">
@@ -3510,6 +3833,8 @@ console.log(isObject(2)); // false</pre>
 
         <tr>
             
+                <td class="name"><code>key</code></td>
+            
 
             <td class="type">
             
@@ -3530,6 +3855,8 @@ console.log(isObject(2)); // false</pre>
 	
 
         <tr>
+            
+                <td class="name"><code>value</code></td>
             
 
             <td class="type">
@@ -3620,17 +3947,28 @@ console.log(isObject(2)); // false</pre>
         
     
     
+        <h5>Example</h5>
+        
+    <pre class="sunlight-highlight-javascript">var newUrl = domu.setQueryStringParam(&#x27;http://example.com/?foo=bar&#x27;, &#x27;foo&#x27;, &#x27;qux&#x27;);
+console.log(newUrl); // http://example.com/?foo=qux</pre>
+
+
+    
 </dd>
 
         
             
 <dt>
-    <h4 class="name" id="stripTags"><span class="type-signature"></span>stripTags<span class="signature">()</span><span class="type-signature"> &rarr; {string}</span></h4>
+    <h4 class="name" id="stripTags"><span class="type-signature"></span>stripTags<span class="signature">(htmlString)</span><span class="type-signature"> &rarr; {string}</span></h4>
     
     
 </dt>
 <dd>
     
+    
+    <div class="description">
+        Strip HTML tags from a string.
+    </div>
     
 
     
@@ -3644,6 +3982,8 @@ console.log(isObject(2)); // false</pre>
 <table class="params table table-striped">
     <thead>
 	<tr>
+		
+		<th>Name</th>
 		
 
 		<th>Type</th>
@@ -3660,6 +4000,8 @@ console.log(isObject(2)); // false</pre>
 	
 
         <tr>
+            
+                <td class="name"><code>htmlString</code></td>
             
 
             <td class="type">
@@ -3750,6 +4092,14 @@ console.log(isObject(2)); // false</pre>
         
     
     
+        <h5>Example</h5>
+        
+    <pre class="sunlight-highlight-javascript">var htmlString = &#x27;&lt;strong&gt;Hi&lt;/strong&gt;&#x27;;
+var newString = domu.stripTags(htmlString);
+console.log(newString); // Hi</pre>
+
+
+    
 </dd>
 
         
@@ -3761,6 +4111,10 @@ console.log(isObject(2)); // false</pre>
 </dt>
 <dd>
     
+    
+    <div class="description">
+        Create a text node.
+    </div>
     
 
     
@@ -3835,17 +4189,27 @@ console.log(isObject(2)); // false</pre>
         
     
     
+        <h5>Example</h5>
+        
+    <pre class="sunlight-highlight-javascript">var myTextNode = domu.textNode();</pre>
+
+
+    
 </dd>
 
         
             
 <dt>
-    <h4 class="name" id="wrap"><span class="type-signature"></span>wrap<span class="signature">()</span><span class="type-signature"> &rarr; {function}</span></h4>
+    <h4 class="name" id="wrap"><span class="type-signature"></span>wrap<span class="signature">(elementType)</span><span class="type-signature"> &rarr; {function}</span></h4>
     
     
 </dt>
 <dd>
     
+    
+    <div class="description">
+        wrap an element with another type of element.
+    </div>
     
 
     
@@ -3859,6 +4223,8 @@ console.log(isObject(2)); // false</pre>
 <table class="params table table-striped">
     <thead>
 	<tr>
+		
+		<th>Name</th>
 		
 
 		<th>Type</th>
@@ -3875,6 +4241,8 @@ console.log(isObject(2)); // false</pre>
 	
 
         <tr>
+            
+                <td class="name"><code>elementType</code></td>
             
 
             <td class="type">
@@ -3961,6 +4329,13 @@ console.log(isObject(2)); // false</pre>
         
     
     
+        <h5>Example</h5>
+        
+    <pre class="sunlight-highlight-javascript">var mySpan = document.getElementById(&#x27;mySpan&#x27;);
+var wrapped = domu.wrap(&#x27;div&#x27;)(mySpan); // &lt;div&gt;&lt;span id=&quot;mySpan&quot;&gt;&lt;/span&gt;&lt;/div&gt;</pre>
+
+
+    
 </dd>
 
         </dl>
@@ -3989,7 +4364,7 @@ console.log(isObject(2)); // false</pre>
 					
 		<span class="jsdoc-message">
 		Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.3.0-alpha9</a>
-		on 2014-08-31T22:28:15-07:00 using the <a
+		on 2014-09-01T01:00:06-07:00 using the <a
 			href="https://github.com/terryweiss/docstrap">DocStrap template</a>.
 		</span>
 				</footer>
