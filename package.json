@@ -1,0 +1,35 @@
+{
+  "name": "domu",
+  "version": "0.0.1",
+  "description": "DOM Utilities",
+  "main": "domu.js",
+  "dependencies": {
+
+  },
+  "devDependencies": {
+    "grunt": "~0.4.2",
+    "grunt-contrib-uglify": "~0.3.2",
+    "grunt-cli": "~0.1.13",
+    "grunt-contrib-jshint": "~0.8.0",
+    "grunt-contrib-watch": "~0.5.3",
+    "grunt-contrib-copy": "~0.5.0",
+    "grunt-contrib-jasmine": "~0.6.1",
+    "grunt-jsdoc": "^0.5.6",
+    "lodash": "~2.4.1",
+    "ink-docstrap": "^0.4.12",
+    "jasmine-node": "^1.14.5",
+    "jsdoc": "^3.3.0-alpha9"
+  },
+  "scripts": {
+    "test": "jasmine-node --autoTest test/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/miguelmota/domu.git"
+  },
+  "author": "Miguel Mota",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/miguelmota/domu/issues"
+  }
+}
