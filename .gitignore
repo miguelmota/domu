@@ -95,6 +95,7 @@ publish
 _test
 _archive
 uploads
+jsdoc-theme
 
 # Vim files to ignore #
 #######################
