@@ -4,7 +4,7 @@ A collection of DOM utilities.
 
 # Documentation
 
-[http://domu.moogs.io](http://domu.moogs.io)
+**[http://domu.moogs.io](http://domu.moogs.io)**
 
 # Install
 
