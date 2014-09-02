@@ -391,7 +391,7 @@
    * @return {object} - parameters
    *
    * @example
-   * var params = domu.getParam('http://example.com?foo=bar');
+   * var params = domu.getParams('http://example.com?foo=bar');
    * console.log(params.foo); // 'bar'
    */
   function getParams(url) {
