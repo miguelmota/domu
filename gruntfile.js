@@ -69,7 +69,7 @@ module.exports = function (grunt) {
         options: {
           destination: 'docs',
           configure: './config/conf.json',
-          template: './node_modules/ink-docstrap/template'
+          template: './node_modules/jsdoc-oblivion/template'
         }
       }
     }
