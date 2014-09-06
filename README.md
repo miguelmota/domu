@@ -32,7 +32,7 @@ TODO.
 
 # Source
 
-(https://github.com/miguelmota/domu)[https://github.com/miguelmota/domu]
+[https://github.com/miguelmota/domu](https://github.com/miguelmota/domu)
 
 # License
 
