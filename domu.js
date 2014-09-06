@@ -19,7 +19,6 @@
       return Object.prototype.toString.call(o) === '[object Object]';
   }
 
-
   /**
    * @desc Check wheter item is an array.
    *
