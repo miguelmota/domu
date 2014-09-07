@@ -7,7 +7,7 @@
   /**
    * @desc Check wheter item is an object.
    *
-   * @func  isObject
+   * @func isObject
    * @param {*} item - any item
    * @return {boolean} - is object
    *
