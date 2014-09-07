@@ -8,7 +8,13 @@ A collection of DOM utilities.
 
 # Install
 
-Available via [Bower](http://bower.io/)
+Available via [bower](http://bower.io/):
+
+```bash
+bower install domu
+```
+
+Available via [npm](https://www.npmjs.org/package/domujs):
 
 ```bash
 bower install domu

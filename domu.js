@@ -561,6 +561,26 @@
       return (str ? str.replace(/(<([^>]+)>)/ig, '') : str);
   }
 
+  /**
+   * @desc Get position of scrolled page
+   *
+   * @func getScrollTop
+   * @return {integer} - scrollTop
+   *
+   * @example
+   * console.log(getScrollTop()); // scrolled amount
+   */
+  function getScrollTop() {
+    if (typeof pageYOffset != 'undefined') {
+      return pageYOffset;
+    } else {
+      var b = document.body;
+      var d = document.documentElement;
+      d = d.clientHeight ? d: b;
+      return d.scrollTop;
+    }
+  }
+
   var _ = function(override) {
       var mixinObj = {};
       for (var k in lib) {
