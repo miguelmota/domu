@@ -34,7 +34,11 @@ grunt jsdoc
 
 # Test
 
-TODO.
+```bash
+grunt test
+```
+
+[http://domu.moogs.io/test/SpecRunner.html](http://domu.moogs.io/test/SpecRunner.html)
 
 # Source
 

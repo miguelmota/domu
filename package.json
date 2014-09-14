@@ -18,10 +18,10 @@
     "jasmine-node": "^1.14.5",
     "jsdoc": "^3.3.0-alpha9",
     "jsdoc-oblivion": "0.0.3",
-    "lodash": "~2.4.1"
+    "lodash": "^2.4.1"
   },
   "scripts": {
-    "test": "jasmine-node --autoTest test/"
+    "test": "grunt test"
   },
   "repository": {
     "type": "git",

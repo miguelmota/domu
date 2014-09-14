@@ -4,7 +4,7 @@ module.exports = function (grunt) {
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
     jshint: {
-      files: ['rutil.js'],
+      files: ['domu.js'],
       options: {
         globals: {
           console: true,
@@ -16,9 +16,9 @@ module.exports = function (grunt) {
     uglify: {
       options: {
         banner: '/*! <%= pkg.name %> <%= grunt.template.today("dd-mm-yyyy") %> */\n',
-        sourceMap: 'rutil.min.js.map',
+        sourceMap: 'domu.min.js.map',
         sourceMapRoot: '/',
-        sourceMappingURL: 'rutil.min.js.map',
+        sourceMappingURL: 'domu.min.js.map',
         sourceMapPrefix: 1,
         mangle: true,
         compress: {
@@ -31,8 +31,8 @@ module.exports = function (grunt) {
       },
       dist: {
         files: {
-          'rutil.min.js': [
-            'rutil.js'
+          'domu.min.js': [
+            'domu.js'
           ]
         }
       }
@@ -40,7 +40,7 @@ module.exports = function (grunt) {
     watch: {
       scripts: {
         files: [
-          'rutil.js',
+          'domu.js',
           'test/spec/*.js'
         ],
         tasks: ['compile_scripts']
@@ -48,8 +48,8 @@ module.exports = function (grunt) {
     },
     copy: {
       rtoj: {
-        src: 'rutil.js',
-        dest: 'test/src/rutil.js',
+        src: 'domu.js',
+        dest: 'test/src/domu.js',
       }
     },
     jasmine: {
