@@ -17,7 +17,7 @@ bower install domu
 Available via [npm](https://www.npmjs.org/package/domujs):
 
 ```bash
-bower install domujs
+npm install domujs
 ```
 
 # Extend _
