@@ -1,10 +1,12 @@
+# (DEPRECATED)
+
 # Domu.js - DOM Utilities
 
 A collection of DOM utilities.
 
 # Documentation
 
-**[http://domu.moogs.io](http://domu.moogs.io)**
+**[https://lab.miguelmota.com/domu](https://lab.miguelmota.com/domu)**
 
 # Install
 

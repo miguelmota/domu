@@ -1,6 +1,6 @@
 {
   "name": "domujs",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "DOM Utilities",
   "main": "domu.js",
   "dependencies": {
